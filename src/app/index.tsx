@@ -1,268 +1,87 @@
-import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
 import { router } from "expo-router";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-export default function HomeScreen() {
+export default function RoleSelection() {
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.content}
-    >
-      {/* HEADER */}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        {/* LOGO / BRAND */}
 
-      <View style={styles.header}>
-        <View>
-          <Text style={styles.greeting}>
-            Namaste, Artisan 👋
-          </Text>
+        <View style={styles.brandSection}>
+          <Text style={styles.logo}>KarigarSetu</Text>
 
-          <Text style={styles.subtitle}>
-            Grow your craft. Grow your business.
+          <Text style={styles.tagline}>From Craft to Commerce</Text>
+        </View>
+
+        {/* WELCOME */}
+
+        <View style={styles.welcomeSection}>
+          <Text style={styles.welcomeTitle}>Welcome to KarigarSetu</Text>
+
+          <Text style={styles.welcomeText}>
+            Choose how you want to continue
           </Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => router.push("/profile")}
-        >
-          <Text style={styles.profileIcon}>👩‍🎨</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* MAIN CTA */}
-
-      <View style={styles.heroCard}>
-        <View style={styles.heroContent}>
-          <Text style={styles.heroTitle}>
-            Turn your craft into commerce
-          </Text>
-
-          <Text style={styles.heroText}>
-            Create professional product listings
-            with the help of AI.
-          </Text>
-
-          <TouchableOpacity
-            style={styles.primaryButton}
-            onPress={() => router.push("/add-product")}
-          >
-            <Text style={styles.primaryButtonText}>
-              ✨ Create Product Listing
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        <Text style={styles.heroEmoji}>
-          🧑‍🎨
-        </Text>
-      </View>
-
-      {/* QUICK ACTIONS */}
-
-      <Text style={styles.sectionTitle}>
-        Quick Actions
-      </Text>
-
-      <View style={styles.actionGrid}>
+        {/* CUSTOMER */}
 
         <TouchableOpacity
-          style={styles.actionCard}
-          onPress={() => router.push("/add-product")}
+          style={styles.roleCard}
+          activeOpacity={0.85}
+          onPress={() => router.replace("/customer")}
         >
-          <Text style={styles.actionIcon}>
-            📸
-          </Text>
+          <View style={styles.iconContainer}>
+            <Text style={styles.roleIcon}>🛍️</Text>
+          </View>
 
-          <Text style={styles.actionTitle}>
-            Add Product
-          </Text>
+          <View style={styles.roleInfo}>
+            <Text style={styles.roleTitle}>As Customer</Text>
 
-          <Text style={styles.actionText}>
-            Create a new listing
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.actionCard}
-          onPress={() => router.push("/catalogue")}
-        >
-          <Text style={styles.actionIcon}>
-            📦
-          </Text>
-
-          <Text style={styles.actionTitle}>
-            My Catalogue
-          </Text>
-
-          <Text style={styles.actionText}>
-            Manage your products
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.actionCard}
-          onPress={() => router.push("/rewards")}
-        >
-          <Text style={styles.actionIcon}>
-            🏆
-          </Text>
-
-          <Text style={styles.actionTitle}>
-            Rewards
-          </Text>
-
-          <Text style={styles.actionText}>
-            85 artisan points
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.actionCard}
-          onPress={() => router.push("/profile")}
-        >
-          <Text style={styles.actionIcon}>
-            👤
-          </Text>
-
-          <Text style={styles.actionTitle}>
-            My Profile
-          </Text>
-
-          <Text style={styles.actionText}>
-            Manage your business
-          </Text>
-        </TouchableOpacity>
-
-      </View>
-
-      {/* BUSINESS OVERVIEW */}
-
-      <View style={styles.sectionHeader}>
-        <Text style={styles.sectionTitle}>
-          Business Overview
-        </Text>
-
-        <Text style={styles.thisMonth}>
-          This Month
-        </Text>
-      </View>
-
-      <View style={styles.statsCard}>
-
-        <View style={styles.stat}>
-          <Text style={styles.statIcon}>
-            📦
-          </Text>
-
-          <Text style={styles.statNumber}>
-            12
-          </Text>
-
-          <Text style={styles.statLabel}>
-            Products
-          </Text>
-        </View>
-
-        <View style={styles.statDivider} />
-
-        <View style={styles.stat}>
-          <Text style={styles.statIcon}>
-            💰
-          </Text>
-
-          <Text style={styles.statNumber}>
-            ₹8.5K
-          </Text>
-
-          <Text style={styles.statLabel}>
-            Sales
-          </Text>
-        </View>
-
-        <View style={styles.statDivider} />
-
-        <View style={styles.stat}>
-          <Text style={styles.statIcon}>
-            ⭐
-          </Text>
-
-          <Text style={styles.statNumber}>
-            85
-          </Text>
-
-          <Text style={styles.statLabel}>
-            Points
-          </Text>
-        </View>
-
-      </View>
-
-      {/* REWARD PROGRESS */}
-
-      <TouchableOpacity
-        style={styles.rewardCard}
-        onPress={() => router.push("/rewards")}
-      >
-        <View style={styles.rewardHeader}>
-
-          <View>
-            <Text style={styles.rewardTitle}>
-              🥈 Silver Artisan
-            </Text>
-
-            <Text style={styles.rewardText}>
-              You're 15 points away from Gold!
+            <Text style={styles.roleDescription}>
+              Explore and shop handcrafted products from local artisans.
             </Text>
           </View>
 
-          <Text style={styles.rewardArrow}>
-            →
-          </Text>
+          <Text style={styles.arrow}>→</Text>
+        </TouchableOpacity>
 
-        </View>
+        {/* SELLER / ARTISAN */}
 
-        <View style={styles.progressBackground}>
-          <View style={styles.progress} />
-        </View>
+        <TouchableOpacity
+          style={styles.roleCard}
+          activeOpacity={0.85}
+          onPress={() => router.replace("/artisan-home")}
+        >
+          <View style={styles.iconContainer}>
+            <Text style={styles.roleIcon}>🧑‍🎨</Text>
+          </View>
 
-      </TouchableOpacity>
+          <View style={styles.roleInfo}>
+            <Text style={styles.roleTitle}>As Seller</Text>
 
-      {/* TIP */}
+            <Text style={styles.roleDescription}>
+              Showcase your craft, manage products and grow your business.
+            </Text>
+          </View>
 
-      <View style={styles.tipCard}>
-        <Text style={styles.tipIcon}>
-          💡
-        </Text>
+          <Text style={styles.arrow}>→</Text>
+        </TouchableOpacity>
 
-        <View style={{ flex: 1 }}>
-          <Text style={styles.tipTitle}>
-            Artisan Tip
-          </Text>
+        {/* FOOTER */}
 
-          <Text style={styles.tipText}>
-            Upload clear product photos and add
-            detailed descriptions to attract more buyers.
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>
+            Supporting local artisans • Empowering handmade businesses
           </Text>
         </View>
       </View>
-
-      {/* BRAND */}
-
-      <Text style={styles.brand}>
-        KarigarSetu
-      </Text>
-
-      <Text style={styles.tagline}>
-        From Craft to Commerce
-      </Text>
-
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -273,259 +92,110 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    padding: 20,
-    paddingBottom: 45,
-  },
-
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 22,
-  },
-
-  greeting: {
-    fontSize: 24,
-    fontWeight: "800",
-    color: "#7B3F00",
-  },
-
-  subtitle: {
-    color: "#777",
-    fontSize: 13,
-    marginTop: 5,
-  },
-
-  profileButton: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: "#FFE4C4",
+    flex: 1,
+    paddingHorizontal: 24,
     justifyContent: "center",
+  },
+
+  brandSection: {
     alignItems: "center",
+    marginBottom: 45,
   },
 
-  profileIcon: {
-    fontSize: 25,
-  },
-
-  heroCard: {
-    backgroundColor: "#7B3F00",
-    borderRadius: 22,
-    padding: 22,
-    minHeight: 205,
-    flexDirection: "row",
-    overflow: "hidden",
-  },
-
-  heroContent: {
-    flex: 1,
-  },
-
-  heroTitle: {
-    color: "#FFFFFF",
-    fontSize: 23,
-    fontWeight: "800",
-    lineHeight: 29,
-  },
-
-  heroText: {
-    color: "#F3DCC4",
-    fontSize: 13,
-    lineHeight: 19,
-    marginTop: 9,
-  },
-
-  heroEmoji: {
-    fontSize: 70,
-    position: "absolute",
-    right: 5,
-    bottom: 5,
-    opacity: 0.9,
-  },
-
-  primaryButton: {
-    backgroundColor: "#FFFFFF",
-    paddingHorizontal: 15,
-    paddingVertical: 12,
-    borderRadius: 12,
-    alignSelf: "flex-start",
-    marginTop: 18,
-  },
-
-  primaryButtonText: {
+  logo: {
+    fontSize: 32,
+    fontWeight: "900",
     color: "#7B3F00",
-    fontWeight: "800",
-    fontSize: 13,
-  },
-
-  sectionTitle: {
-    fontSize: 19,
-    fontWeight: "800",
-    color: "#29231E",
-    marginTop: 25,
-    marginBottom: 12,
-  },
-
-  actionGrid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 12,
-  },
-
-  actionCard: {
-    width: "48%",
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    padding: 16,
-    minHeight: 125,
-  },
-
-  actionIcon: {
-    fontSize: 28,
-  },
-
-  actionTitle: {
-    fontSize: 15,
-    fontWeight: "800",
-    marginTop: 9,
-  },
-
-  actionText: {
-    color: "#888",
-    fontSize: 11,
-    marginTop: 4,
-    lineHeight: 16,
-  },
-
-  sectionHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-
-  thisMonth: {
-    color: "#999",
-    fontSize: 11,
-  },
-
-  statsCard: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    padding: 16,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-
-  stat: {
-    flex: 1,
-    alignItems: "center",
-  },
-
-  statIcon: {
-    fontSize: 21,
-  },
-
-  statNumber: {
-    fontSize: 18,
-    fontWeight: "800",
-    color: "#7B3F00",
-    marginTop: 5,
-  },
-
-  statLabel: {
-    color: "#888",
-    fontSize: 11,
-    marginTop: 3,
-  },
-
-  statDivider: {
-    width: 1,
-    height: 55,
-    backgroundColor: "#E9E1D9",
-  },
-
-  rewardCard: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 16,
-    padding: 17,
-    marginTop: 14,
-  },
-
-  rewardHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-
-  rewardTitle: {
-    fontSize: 16,
-    fontWeight: "800",
-    color: "#7B3F00",
-  },
-
-  rewardText: {
-    color: "#777",
-    fontSize: 12,
-    marginTop: 4,
-  },
-
-  rewardArrow: {
-    marginLeft: "auto",
-    fontSize: 22,
-    color: "#7B3F00",
-  },
-
-  progressBackground: {
-    height: 8,
-    backgroundColor: "#E8DED4",
-    borderRadius: 10,
-    marginTop: 15,
-  },
-
-  progress: {
-    width: "85%",
-    height: 8,
-    backgroundColor: "#D28A3A",
-    borderRadius: 10,
-  },
-
-  tipCard: {
-    backgroundColor: "#FFF0D9",
-    borderRadius: 16,
-    padding: 16,
-    marginTop: 14,
-    flexDirection: "row",
-  },
-
-  tipIcon: {
-    fontSize: 25,
-    marginRight: 12,
-  },
-
-  tipTitle: {
-    color: "#7B3F00",
-    fontWeight: "800",
-  },
-
-  tipText: {
-    color: "#6D5947",
-    fontSize: 12,
-    lineHeight: 18,
-    marginTop: 4,
-  },
-
-  brand: {
-    textAlign: "center",
-    color: "#7B3F00",
-    fontSize: 21,
-    fontWeight: "800",
-    marginTop: 30,
   },
 
   tagline: {
-    textAlign: "center",
+    fontSize: 13,
     color: "#999",
-    fontSize: 12,
-    marginTop: 3,
+    marginTop: 5,
+  },
+
+  welcomeSection: {
+    marginBottom: 22,
+  },
+
+  welcomeTitle: {
+    fontSize: 24,
+    fontWeight: "800",
+    color: "#29231E",
+    textAlign: "center",
+  },
+
+  welcomeText: {
+    fontSize: 13,
+    color: "#888",
+    textAlign: "center",
+    marginTop: 7,
+  },
+
+  roleCard: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    padding: 18,
+    marginBottom: 15,
+    flexDirection: "row",
+    alignItems: "center",
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+
+  iconContainer: {
+    width: 58,
+    height: 58,
+    borderRadius: 16,
+    backgroundColor: "#FFF0DF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  roleIcon: {
+    fontSize: 29,
+  },
+
+  roleInfo: {
+    flex: 1,
+    marginLeft: 15,
+    paddingRight: 8,
+  },
+
+  roleTitle: {
+    fontSize: 17,
+    fontWeight: "800",
+    color: "#29231E",
+  },
+
+  roleDescription: {
+    fontSize: 11,
+    color: "#888",
+    lineHeight: 17,
+    marginTop: 5,
+  },
+
+  arrow: {
+    fontSize: 25,
+    color: "#7B3F00",
+    fontWeight: "600",
+  },
+
+  footer: {
+    marginTop: 25,
+    alignItems: "center",
+  },
+
+  footerText: {
+    fontSize: 10,
+    color: "#AAA",
+    textAlign: "center",
   },
 });
