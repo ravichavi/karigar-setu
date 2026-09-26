@@ -879,4 +879,22 @@ const styles = StyleSheet.create({
     color: "#7B3F00",
     fontWeight: "700",
   },
+
+  categoryButton: {
+    paddingHorizontal: 17,
+    height: 38,
+    borderRadius: 20,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: "#E3DDD8",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 10,
+  },
+
+  categoryText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#666",
+  },
 });
